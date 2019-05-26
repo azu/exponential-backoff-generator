@@ -137,9 +137,14 @@ doAsyncTask().then(value => {
 - [Exponential backoff - Wikipedia](https://en.wikipedia.org/wiki/Exponential_backoff)
 - [Error Retries and Exponential Backoff in AWS - Amazon Web Services](https://docs.aws.amazon.com/general/latest/gr/api-retries.html)
 
+
 ## Changelog
 
 See [Releases page](https://github.com/azu/exponential-backoff-generator/releases).
+
+## Release Package
+
+    npm run release
 
 ## Running tests
 
