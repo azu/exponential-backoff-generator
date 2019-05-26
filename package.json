@@ -1,6 +1,6 @@
 {
   "name": "exponential-backoff-generator",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Exponential backoff generator. Provide robust retry function.",
   "keywords": [
     "backoff",
@@ -31,10 +31,23 @@
   },
   "@pika/pack": {
     "pipeline": [
-      ["@pika/plugin-standard-pkg", {"exclude": ["__tests__/**/*"]}],
-      ["@pika/plugin-build-node"],
-      ["@pika/plugin-build-web"],
-      ["@pika/plugin-build-types"]
+      [
+        "@pika/plugin-standard-pkg",
+        {
+          "exclude": [
+            "__tests__/**/*"
+          ]
+        }
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ],
+      [
+        "@pika/plugin-build-types"
+      ]
     ]
   },
   "scripts": {
