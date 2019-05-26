@@ -110,6 +110,7 @@ const doAsyncTask = async () => {
     });
     for (const { sleep } of backoff) {
         try {
+            // Do not forget `await`!
             return await rejectOrResolve();
         } catch(error) {
             await sleep();
