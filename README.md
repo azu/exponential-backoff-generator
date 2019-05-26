@@ -8,6 +8,10 @@ Install with [npm](https://www.npmjs.com/):
 
     npm install exponential-backoff-generator
 
+Requirement:
+
+- Support ECMAScript 2015
+
 ## Usage
 
 ```ts
