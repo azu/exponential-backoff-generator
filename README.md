@@ -109,6 +109,7 @@ const doAsyncTask = async () => {
             await sleep();
         }
     }
+    // all retries are failed, invoke current line
     throw new Error("doAsyncTask failed at all");
 };
 
