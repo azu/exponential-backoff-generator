@@ -29,13 +29,22 @@
     "lib": "lib",
     "test": "test"
   },
+  "@pika/pack": {
+    "pipeline": [
+      ["@pika/plugin-standard-pkg", {"exclude": ["__tests__/**/*"]}],
+      ["@pika/plugin-build-node"],
+      ["@pika/plugin-build-web"],
+      ["@pika/plugin-build-types"]
+    ]
+  },
   "scripts": {
-    "build": "cross-env NODE_ENV=production tsc -p .",
+    "build": "pack build",
     "clean": "rimraf lib/",
     "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
     "prepublish": "npm run --if-present build",
     "test": "mocha \"test/**/*.ts\"",
-    "watch": "tsc -p . --watch"
+    "watch": "tsc -p . --watch",
+    "release": "pack publish"
   },
   "husky": {
     "hooks": {
@@ -54,6 +63,11 @@
     "tabWidth": 4
   },
   "devDependencies": {
+    "@pika/pack": "^0.3.7",
+    "@pika/plugin-build-node": "^0.4.0",
+    "@pika/plugin-build-types": "^0.4.0",
+    "@pika/plugin-build-web": "^0.4.0",
+    "@pika/plugin-standard-pkg": "^0.4.0",
     "@types/mocha": "^5.2.6",
     "@types/node": "^12.0.2",
     "cross-env": "^5.2.0",
