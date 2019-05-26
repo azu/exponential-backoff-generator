@@ -1,6 +1,6 @@
-# exponential-backoff-generator
+# exponential-backoff-generator [![Build Status](https://travis-ci.org/azu/exponential-backoff-generator.svg?branch=master)](https://travis-ci.org/azu/exponential-backoff-generator)
 
-Exponential backoff generator. Provide robust retry function.
+Exponential backoff generator. This library provide robust retry function.
 
 ## Install
 
