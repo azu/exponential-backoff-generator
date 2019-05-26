@@ -56,12 +56,18 @@ const doAsyncTask = async () => {
     for (const { sleep } of backoff) {
         try {
             return await YourAsyncTaskWantToRetry();
-        } catch {
+        } catch(error) {
             await sleep(); // wait 100ms, 200ms, 400ms, 800ms ...
         }
     }
     throw new Error("YourAsyncTaskWantToRetry failed at all");
 };
+
+doAsyncTask().then(result => {
+    console.log(result); // YourAsyncTaskWantToRetry resolved value
+}).catch(error => {
+    console.error(error); // Error: YourAsyncTaskWantToRetry failed at all
+});
 ```
 
 Step by Step of iteration:
@@ -105,7 +111,7 @@ const doAsyncTask = async () => {
     for (const { sleep } of backoff) {
         try {
             return await rejectOrResolve();
-        } catch {
+        } catch(error) {
             await sleep();
         }
     }
