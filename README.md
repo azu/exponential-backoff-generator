@@ -10,7 +10,7 @@ Install with [npm](https://www.npmjs.com/):
 
 Requirement:
 
-- Support ECMAScript 2015
+- Support ECMAScript 2018+
 
 ## Usage
 

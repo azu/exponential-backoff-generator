@@ -10,7 +10,7 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "newLine": "LF",
-    "target": "es2015",
+    "target": "ES2018",
     "sourceMap": true,
     "jsx": "preserve",
     "lib": [
