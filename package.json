@@ -1,7 +1,7 @@
 {
   "name": "exponential-backoff-generator",
   "version": "1.1.0",
-  "description": "Exponential backoff generator. Provide robust retry function.",
+  "description": "Exponential backoff generator. Robust retry function.",
   "keywords": [
     "backoff",
     "exponential_backoff",
