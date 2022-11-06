@@ -23,11 +23,11 @@ export type BackoffOptions = {
 
 export function* generateBackoff(options?: BackoffOptions) {
     // options
-    const retries = options && options.retries !== undefined ? options.retries : 7;
-    const min = options && options.min !== undefined ? options.min : 100;
-    const max = options && options.max !== undefined ? options.max : 10 * 1000;
-    const factor = options && options.factor !== undefined ? options.factor : 2;
-    const jitter = options && options.jitter !== undefined ? options.jitter : 0;
+    const retries = options?.retries ?? 7;
+    const min = options?.min ?? 100;
+    const max = options?.max ?? 10 * 1000;
+    const factor = options?.factor ?? 2;
+    const jitter = options?.jitter ?? 0;
     // assertion
     if (min <= 0) {
         throw new Error(`Invalid option: options.min > 0`);
