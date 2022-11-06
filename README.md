@@ -44,14 +44,14 @@ export declare function generateBackoff(options?: BackoffOptions): IterableItera
 }>;
 ```
 
-`generateBackoff()` function return a iterable objects.
+`generateBackoff()` function return an iterable objects.
 The iterable objects has these properties.
 
 - `attempts`: current try count
 - `duration`: duration for current attempts
 - `sleep`: a function return a promise that will be resolved after `duration`
 
-It work with [for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) statement.
+It works with [for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) statement.
 
 ```js
 import { generateBackoff } from "exponential-backoff-generator";
@@ -74,9 +74,7 @@ doAsyncTask().then(result => {
 });
 ```
 
-Step by Step of iteration:
-
-[Array​.from()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from) create an array from iterable object.
+[Array.from()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from) create an array from iterable object.
 
 ```js
 import { generateBackoff } from "exponential-backoff-generator";
@@ -95,8 +93,7 @@ assert.deepStrictEqual(generated, [
 });
 ```
 
-
-## Example
+## Examples
 
 ```js
 const doAsyncTask = async () => {
