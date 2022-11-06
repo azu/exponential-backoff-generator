@@ -146,10 +146,6 @@ doAsyncTask().then(value => {
 
 See [Releases page](https://github.com/azu/exponential-backoff-generator/releases).
 
-## Release Package
-
-    npm run release
-
 ## Running tests
 
 Install devDependencies and Run `npm test`:

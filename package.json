@@ -41,7 +41,6 @@
     "pack": "NODE_ENV=production packemon pack --addEngines --addFiles --addExports --declaration",
     "prepare": "git config --local core.hooksPath .githooks",
     "prepublish": "npm run --if-present build",
-    "release": "pack publish",
     "test": "mocha \"test/**/*.ts\"",
     "watch": "tsc -p . --watch"
   },
