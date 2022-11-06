@@ -18,79 +18,80 @@
   },
   "license": "MIT",
   "author": "azu",
-  "files": [
-    "bin/",
-    "lib/",
-    "src/"
-  ],
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "./mjs/index.mjs",
+  "module": "./esm/index.js",
+  "types": "./dts/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "test"
   },
-  "@pika/pack": {
-    "pipeline": [
-      [
-        "@pika/plugin-standard-pkg",
-        {
-          "exclude": [
-            "__tests__/**/*"
-          ]
-        }
-      ],
-      [
-        "@pika/plugin-build-node"
-      ],
-      [
-        "@pika/plugin-build-web"
-      ],
-      [
-        "@pika/plugin-build-types"
-      ]
-    ]
-  },
+  "files": [
+    "bin/",
+    "dts/**/*.d.ts",
+    "esm/**/*.{js,map}",
+    "lib/",
+    "lib/**/*.{js,map}",
+    "mjs/**/*.{mjs,map}",
+    "src/",
+    "src/**/*.{ts,tsx,json}"
+  ],
   "scripts": {
-    "build": "pack build",
-    "clean": "rimraf lib/",
-    "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
+    "build": "packemon build --addEngines --addFiles --addExports --declaration",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
+    "pack": "NODE_ENV=production packemon pack --addEngines --addFiles --addExports --declaration",
+    "prepare": "git config --local core.hooksPath .githooks",
     "prepublish": "npm run --if-present build",
+    "release": "pack publish",
     "test": "mocha \"test/**/*.ts\"",
-    "watch": "tsc -p . --watch",
-    "release": "pack publish"
-  },
-  "husky": {
-    "hooks": {
-      "precommit": "lint-staged"
-    }
+    "watch": "tsc -p . --watch"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "prettier": {
     "printWidth": 120,
     "singleQuote": false,
-    "tabWidth": 4
+    "tabWidth": 4,
+    "trailingComma": "none"
   },
   "devDependencies": {
-    "@pika/pack": "^0.3.7",
-    "@pika/plugin-build-node": "^0.4.0",
-    "@pika/plugin-build-types": "^0.4.0",
-    "@pika/plugin-build-web": "^0.4.0",
-    "@pika/plugin-standard-pkg": "^0.4.0",
-    "@types/mocha": "^5.2.6",
-    "@types/node": "^12.0.2",
-    "cross-env": "^5.2.0",
-    "husky": "^2.3.0",
-    "lint-staged": "^8.1.7",
-    "mocha": "^6.1.4",
-    "prettier": "^1.17.1",
-    "rimraf": "^2.6.3",
-    "ts-node": "^8.2.0",
-    "ts-node-test-register": "^8.0.1",
-    "typescript": "^3.4.5"
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^18.11.9",
+    "cross-env": "^7.0.3",
+    "lint-staged": "^13.0.3",
+    "mocha": "^10.1.0",
+    "packemon": "^2.4.1",
+    "prettier": "^2.7.1",
+    "ts-node": "^10.9.1",
+    "ts-node-test-register": "^10.0.0",
+    "typescript": "^4.8.4"
+  },
+  "engines": {
+    "node": ">=14.15.0",
+    "npm": ">=6.14.0"
+  },
+  "packemon": {
+    "format": "esm",
+    "platform": [
+      "browser",
+      "node"
+    ]
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dts/index.d.ts",
+      "browser": {
+        "module": "./esm/index.js",
+        "import": "./esm/index.js",
+        "default": "./lib/index.js"
+      },
+      "node": {
+        "import": "./mjs/index.mjs"
+      },
+      "default": "./lib/index.js"
+    }
   }
 }

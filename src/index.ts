@@ -19,7 +19,7 @@ export type BackoffOptions = {
     // Default: 0
     // For more details, see https://aws.amazon.com/jp/blogs/architecture/exponential-backoff-and-jitter/
     jitter?: number;
-}
+};
 
 export function* generateBackoff(options?: BackoffOptions) {
     // options
@@ -57,7 +57,13 @@ export function* generateBackoff(options?: BackoffOptions) {
     }
 }
 
-function computeDuration({ factor, attempts, jitter, min, max }: {
+function computeDuration({
+    factor,
+    attempts,
+    jitter,
+    min,
+    max
+}: {
     factor: number;
     attempts: number;
     jitter: number;

@@ -1,14 +1,17 @@
 {
   "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "dts",
+    "outDir": "dts",
+    "rootDir": "src",
+    "emitDeclarationOnly": true,
     /* Basic Options */
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "newLine": "LF",
-    "outDir": "./lib/",
     "target": "es2015",
     "sourceMap": true,
-    "declaration": true,
     "jsx": "preserve",
     "lib": [
       "es2018",
