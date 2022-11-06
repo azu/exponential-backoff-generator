@@ -90,7 +90,7 @@ assert.deepStrictEqual(generated, [
     3200,
     6400,
     10000
-});
+]);
 ```
 
 ## Examples
